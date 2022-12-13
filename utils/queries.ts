@@ -167,32 +167,33 @@ export const userLikedPostsQuery = (userId: string | string[]) => {
 };
 
 export const topicPostsQuery = (topic: string | string[]) => {
-  const query = `*[_type == "post" && topic match '${topic}*'] {
+  const query = `*[_type=="post" && topic match "${topic}*"]{
     _id,
-     caption,
-       video{
-        asset->{
-          _id,
-          url
-        }
-      },
-      userId,
+    caption,
+    photo{
+    asset->{
+    url
+  }
+  },
+  userId,
+  postedBy->{
+   _id,
+    userName,
+    profile
+  },
+  comments[]{
+    _key,
+    comment,
     postedBy->{
-      _id,
-      userName,
-      image
-    },
- likes,
-
-    comments[]{
-      comment,
-      _key,
-      postedBy->{
-      _id,
-      userName,
-      image
-    },
-    }
+    _id,
+    userName,
+    profile
+  }
+  },
+  likes[]{
+    _ref
+  }
+  
   }`;
 
   return query;

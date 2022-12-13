@@ -23,7 +23,8 @@ const Navbar = () => {
     <div className="flex items-center w-full border-b-2 border-gray-200 px-4 py-2 xl:px-8 xl:py-4 justify-between sticky top-0 bg-white">
       <Link href={"/"}>
         <div className="w-[130px] xl:w-[160px] cursor-pointer">
-          <Image src={Logo} className="object-contain" />
+          <p className="text-2xl font-extrabold tracking-wide bg-[#FF2676] bg-clip-text text-transparent">Connect.io</p>
+          {/* <Image src={Logo} className="object-contain" /> */}
         </div>
       </Link>
 

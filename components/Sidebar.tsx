@@ -13,7 +13,7 @@ const Sidebar = () => {
   const { query, pathname } = useRouter();
   return (
     <div className={`h-[90vh] ${toggle ? "w-20" : "w-auto"} xl:w-400 flex flex-col justify-start overflow-y-hidden hover:overflow-y-auto`}>
-      <div className="block xl:hidden text-xl px-4 py-7" onClick={() => setToggle((prev) => !prev)}>
+      <div className="block xl:hidden text-xl px-4 pt-4" onClick={() => setToggle((prev) => !prev)}>
         {toggle ? <BsXCircle strokeWidth={1} /> : <BsList strokeWidth={1} />}
       </div>
       {toggle && (
@@ -32,7 +32,7 @@ const Sidebar = () => {
             <h1 className="text-gray-500 font-semibold text-md hidden xl:block pl-3">Popular Topics</h1>
             <div className="flex flex-col xl:flex-row flex-nowrap xl:flex-wrap xl:gap-3 justify-items-center">
               {topics.map((t, i) => (
-                <Link href={`?category=${t.name}`} key={i}>
+                <Link href={`/?category=${t.name}`} key={i}>
                   <div
                     className={`hover:bg-primary rounded-sm items-center justify-center xl:justify-start p-3 xl:rounded-3xl xl:border-2 ${
                       query.category === t.name ? "text-[#FF2676] border-[#FF2676]" : "text-primary border-gray-200"
